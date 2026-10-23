@@ -6,10 +6,10 @@ import { Client, Account, TablesDB, ID, Query, Permission, Role } from "https://
  * mode; it never pretends demo data was saved to Appwrite.
  */
 const CONFIG = {
-  endpoint: "https://cloud.appwrite.io/v1",
-  projectId: "PASTE_YOUR_APPWRITE_PROJECT_ID",
-  databaseId: "PASTE_YOUR_DATABASE_ID",
-  tableId: "tasks"
+  endpoint: "https://sgp.cloud.appwrite.io/v1",
+  projectId: "6adb066c00070d13ea61",
+  databaseId: "6adb16fc0023ce04c07d",
+  tableId: "6adb172f002522962fba"
 };
 const $ = (s) => document.querySelector(s);
 const client = new Client().setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
