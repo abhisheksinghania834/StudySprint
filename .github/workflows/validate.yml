@@ -1,0 +1,24 @@
+name: Validate source
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  javascript-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check app.js syntax
+        run: |
+          cp app.js /tmp/app.mjs
+          node --check /tmp/app.mjs
