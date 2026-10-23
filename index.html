@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111827">
+<meta name="description" content="StudySprint helps students plan study tasks and track progress.">
+<title>StudySprint — Make today count</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+<a class="brand" href="#"><span class="logo">S</span><span>study<span class="light">sprint</span></span></a>
+<p class="side-label">WORKSPACE</p>
+<button class="nav active" data-filter="all">▦ &nbsp; Overview</button>
+<button class="nav" data-filter="today">◷ &nbsp; Due today</button>
+<button class="nav" data-filter="pending">◯ &nbsp; In progress</button>
+<button class="nav" data-filter="completed">✓ &nbsp; Completed</button>
+<div class="side-bottom"><div class="note"><b>Small steps add up.</b><p>One focused session today is progress toward your goals.</p></div><div class="connection"><i id="dot"></i><span id="connection">Checking database setup</span></div></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="crumb">Workspace <span>/</span> <b id="view-name">Overview</b></div><div class="profile"><span class="avatar">S</span><span><b>My study space</b><small id="session-state">Study planner</small></span></div></header>
+<section class="welcome"><div><p class="eyebrow">YOUR PERSONAL STUDY SPACE</p><h1>Make today <em>count.</em></h1><p class="muted">A little progress every day adds up to big results.</p></div><span class="date-pill" id="today-label"></span></section>
+<section class="stats">
+<article class="stat"><div>Total tasks <span class="bubble purple">▦</span></div><strong id="total">0</strong><small>Across all subjects</small></article>
+<article class="stat"><div>Completed <span class="bubble green">✓</span></div><strong id="completed">0</strong><small><b id="rate">0%</b> of your tasks</small></article>
+<article class="stat"><div>Due today <span class="bubble orange">◷</span></div><strong id="today">0</strong><small>Keep your momentum</small></article>
+<article class="stat"><div>Still to do <span class="bubble blue">↗</span></div><strong id="pending">0</strong><small>One task at a time</small></article>
+</section>
+<section class="columns">
+<div class="panel">
+<div class="panel-head"><div><p class="eyebrow">YOUR PLAN</p><h2 id="heading">Study tasks</h2></div><button id="add" class="primary">＋ Add task</button></div>
+<div class="filters"><label class="search">⌕ <input id="search" placeholder="Search tasks or subjects…" aria-label="Search tasks"></label><select id="subject" aria-label="Filter by subject"><option value="all">All subjects</option></select></div>
+<div id="tasks" class="tasks"></div>
+<div id="empty" class="empty"><span>✦</span><h3>No tasks here yet</h3><p>Add a study task and turn your plans into progress.</p><button id="first-add" class="secondary">Create your first task</button></div>
+<div class="panel-foot"><span id="summary">Your tasks will appear here</span><button id="clear" class="link">Clear filters</button></div>
+</div>
+<aside class="panel progress"><p class="eyebrow">YOUR MOMENTUM</p><h2>Progress overview</h2><div class="ring-wrap"><div class="ring" id="ring"><div class="ring-inner"><strong id="percent">0%</strong><span>completed</span></div></div></div><p id="progress-note" class="progress-note">Start with one task. You've got this.</p><hr><h3>By subject</h3><div id="subject-progress"><p class="muted">Your subject breakdown will show here.</p></div><div class="quote"><b>“</b><p>Success is the sum of small efforts, repeated day in and day out.</p><small>— Robert Collier</small></div></aside>
+</section>
+<footer><b>StudySprint</b><span>Built for better study habits <i>♥</i></span></footer>
+</main>
+</div>
+<div id="backdrop" class="backdrop hidden"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><p class="eyebrow">MAKE A PLAN</p><h2 id="modal-title">Add a study task</h2></div><button id="close" class="x" aria-label="Close">×</button></div><form id="form"><label>Task name<input id="title" maxlength="120" required placeholder="e.g. Revise quadratic equations"></label><div class="form-row"><label>Subject<input id="subject-name" maxlength="50" required placeholder="e.g. Mathematics"></label><label>Due date<input id="due" type="date" required></label></div><label>Priority<select id="priority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></label><p id="form-error" class="error hidden"></p><div class="actions"><button type="button" id="cancel" class="secondary">Cancel</button><button class="primary" id="save">Save task →</button></div></form></section></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="app.js"></script>
+</body></html>
