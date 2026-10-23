@@ -1,4 +1,4 @@
-import { Client, Account, TablesDB, ID, Query, Permission, Role } from "https://cdn.jsdelivr.net/npm/appwrite@17.0.0/+esm";
+import { Client, Account, TablesDB, ID, Query, Permission, Role } from "https://cdn.jsdelivr.net/npm/appwrite@29.1.0/+esm";
 
 /*
  * Set projectId and databaseId after creating the Appwrite resources.
@@ -268,6 +268,7 @@ $("#form").addEventListener("submit", async e => {
     $("#form-error").classList.remove("hidden");
     return;
   }
+  const wasEditing = Boolean(editingId);
   const save = $("#save");
   save.disabled = true;
   save.textContent = "Saving…";
@@ -289,7 +290,7 @@ $("#form").addEventListener("submit", async e => {
     $("#form-error").classList.remove("hidden");
   } finally {
     save.disabled = false;
-    save.textContent = editingId ? "Save changes →" : "Save task →";
+    save.textContent = wasEditing ? "Save changes →" : "Save task →";
   }
 });
 initialise();
