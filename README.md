@@ -78,6 +78,19 @@ The app creates each row with read, update, and delete permissions for the curre
 - [ ] Check layout on a narrow mobile screen
 - [ ] If configured for Appwrite, test with two separate anonymous sessions to ensure one session cannot read another's rows
 
+## Publish the static site
+
+A GitHub Pages workflow is included in `.github/workflows/pages.yml`. To authorize the first deployment:
+
+1. Open this repository's **Settings → Pages**.
+2. Under **Build and deployment**, select **GitHub Actions** as the source.
+3. Open the **Actions** tab and re-run the latest **Deploy StudySprint to GitHub Pages** workflow.
+4. When it succeeds, GitHub will show the public page URL in the deployment environment. The expected project URL is `https://abhisheksinghania834.github.io/StudySprint/`.
+
+The first deployment cannot enable Pages automatically if the GitHub Actions token lacks that repository-level permission. The one-time Settings step above is required in that case.
+
+Before sharing the page as a database-backed demo, also configure the Appwrite project/database IDs in `app.js`, add `abhisheksinghania834.github.io` as a Web platform in Appwrite, and verify that the app shows **Connected to Appwrite**. Without those settings it intentionally remains in local demo mode.
+
 ## Architecture
 
 ```text
